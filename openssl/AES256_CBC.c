@@ -135,7 +135,7 @@ int main (void)
 
 	int decryptedtext_len, ciphertext_len;
 
-	printf("plaintext = [%s] (%ld bytes)\nkey = [%s]\niv = [%s]\n\n", plaintext, strlen((const char *)plaintext), key, iv);
+	printf("plaintext = [%s] (%ld bytes)\nkey = [%s] (%ld bytes)\niv = [%s] (%ld bits)\n\n", plaintext, strlen((const char *)plaintext), key, strlen((const char *)key), iv, (strlen((const char *)iv) * 8));
 
 	/* Encrypt the plaintext */
 	ciphertext_len = encrypt (plaintext, strlen ((char *)plaintext), key, iv, ciphertext);
