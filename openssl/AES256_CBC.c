@@ -135,11 +135,13 @@ int main (void)
 
 	int decryptedtext_len, ciphertext_len;
 
+	printf("plaintext = [%s] (%ld bytes)\nkey = [%s]\niv = [%s]\n\n", plaintext, strlen((const char *)plaintext), key, iv);
+
 	/* Encrypt the plaintext */
 	ciphertext_len = encrypt (plaintext, strlen ((char *)plaintext), key, iv, ciphertext);
 
 	/* Do something useful with the ciphertext here */
-	printf("Ciphertext is:\n");
+	printf("Ciphertext is (%d bytes):\n", ciphertext_len);
 	BIO_dump_fp (stdout, (const char *)ciphertext, ciphertext_len);
 
 	/* Decrypt the ciphertext */
@@ -149,7 +151,7 @@ int main (void)
 	decryptedtext[decryptedtext_len] = '\0';
 
 	/* Show the decrypted text */
-	printf("Decrypted text is:\n");
+	printf("\nDecrypted text is:\n");
 	printf("%s\n", decryptedtext);
 
 	return 0;
